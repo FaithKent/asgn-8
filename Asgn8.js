@@ -9,10 +9,14 @@ $(document).ready(function() {
     $("#plan2").draggable();
     $("#selection").droppable({
         drop: function(event, ui) {
-            var baseText = $(ui.draggable).html();
-            planSelected = baseText;
-            var pickedText = baseText.substring(0, baseText.length - 1) + " Picked!";
-            $(this).html(pickedText);
+            planSelected = $(ui.draggable).html();
+            var pickedText = planSelected.substring(0, planSelected.length - 1) + " Picked!";
+            $(this)
+                .html(pickedText)
+                .css({
+                    background: '#FEFAF3',
+                    padding: '10px'
+                });
         }
     });
 
@@ -26,7 +30,7 @@ $(document).ready(function() {
         $("#firstName").val(myFirstName);
 
         if (myFirstName == "") {
-            $("#firstNameError").html("You must Enter a First Name");
+            $("#firstNameError").html("Please Enter First Name");
             $("#firstName").focus();
             errors = true;
         } else {
@@ -37,7 +41,7 @@ $(document).ready(function() {
         $("#lastName").val(myLastName);
 
         if (myLastName == "") {
-            $("#lastNameError").html("You must Enter a Last Name");
+            $("#lastNameError").html("Please Enter Last Name");
             $("#lastName").focus();
             errors = true;
         } else {
@@ -47,7 +51,7 @@ $(document).ready(function() {
         var myStartDate = $("#startDate").val();
 
         if (myStartDate == "") {
-            $("#startDateError").html("You must Pick a Date");
+            $("#startDateError").html("Please Enter the Start Date");
             errors = true;
         } else {
             $("#startDateError").html("");
@@ -72,44 +76,46 @@ $(document).ready(function() {
     })
 
     $('#feelingsButton').click(function() {
+        var outputDiv = $('#feelingsOutput');
+
+        var blindCallback = function() {
+            setTimeout(
+                function() {
+                    outputDiv.fadeIn(100); // duration of fade-in
+                },
+                100 // delay before fade-in
+            );
+        };
+
         var text;
         var animation;
-        var callback;
         var textColor;
+        var callback = null;
 
         switch (planSelected) {
             case 'Great Plan!':
                 text = "Great!";
                 animation = "blind";
-                callback = function() {
-                    setTimeout(
-                        function() {
-                            $("#feelingsOutput").fadeIn(100); // duration of fade-in
-                        },
-                        100 // delay before fade-in
-                    );
-                };
-                textColor = '#008B01';
+                callback = blindCallback;
+                textColor = '#008B01'; // dark green
                 break;
 
             case 'Poor Plan!':
                 text = "My Head Hurts!";
                 animation = "shake";
-                callback = function() {};
-                textColor = '#FF0000';
+                textColor = 'red';
                 break;
 
             default: // unselected
-                text = "I don't Know";
+                text = "I don't know";
                 animation = "bounce";
-                callback = function() {};
-                textColor = '#000000';
+                textColor = 'black';
                 break;
         }
 
-        $('#feelingsOutput')
+        outputDiv
             .html(text)
             .css("color", textColor)
-            .effect(animation, {}, 400, callback);
+            .effect(animation, {}, 400, callback); // duration of animation
     });
 })
