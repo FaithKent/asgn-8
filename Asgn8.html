@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Assignment 8</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="Asgn8.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="Asgn8.js"></script>
+    <script>console.log('blah');</script>
+</head>
+
+<body>
+    <h1>Health Care Exchange - First Draft</h1>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tab1">Sign Up</a></li>
+            <li><a href="#tab2">Pick a Plan</a></li>
+            <li><a href="#tab3">How do you Feel?</a></li>
+        </ul>
+        <div id="tab1">
+            <form>
+                <h3>Sign Up</h3>
+                <p>First Name:
+                    <input type="text" id="firstName" class="textInput" size="30">
+                    <span id="firstNameError" class="msg"></span>
+                </p>
+                <p>Last Name:
+                    <input type="text" id="lastName" class="textInput" size="30">
+                    <span id="lastNameError" class="msg"></span>
+                </p>
+                <p>Start Date:
+                    <input type="text" id="startDate" class="textInput" size="30">
+                    <span id="startDateError" class="msg"></span>
+                </p>
+                <br>
+                <p>
+                    <input type="button" id="signUpButton" value="Create an Account" class="button">
+                </p>
+                <p><span id="message" class="msg"></span></p>
+            </form>
+        </div>
+        <div id="tab2">
+            <div class="rowContainer">
+                <div class="columnContainer">
+                    <div id="plan1">Great Plan!</div>
+                    <div id="plan2">Poor Plan!</div>
+                </div>
+                <div id="selection">Drop your plan here</div>
+            </div>
+        </div>
+        <div id="tab3">
+            <p>
+                <input type="button" id="feelingsButton" value="Show My Feelings" class="button">
+            </p>
+            <div id="feelingsOutput">
+                <h2>sometxt</h2>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

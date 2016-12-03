@@ -1,0 +1,93 @@
+body {
+    background-color: #FDFFC9;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: blue;
+}
+
+#tab1 {
+    background: #babab6;
+}
+
+#tab2 {
+    background: #FDFFC9;
+}
+
+#tab3 {
+    background: white;
+}
+
+.msg {
+    color: #FF0000;
+}
+
+.textInput {
+    border-style: inset;
+}
+
+.button {
+    border-radius: 4px;
+    border-width: 2px;
+    border-color: #5dd5dd;
+}
+
+#plan1,
+#plan2 {
+    border-radius: 2px;
+    border-color: #BEBCB6;
+    border: 2px solid #BEBCB6;
+    background: white;
+    padding: 20px;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+}
+
+#selection {
+    border-radius: 2px;
+    border: 2px solid #BEBCB6;
+    padding: 50px;
+    margin: 50px;
+    margin-top: 5px;
+    width: 100px;
+    height: 250px;
+    background: #CCCCCC;
+}
+
+#feelingsOutput {
+	border-radius: 4px;
+    border-color: #BEBCB6;
+    border: 2px solid #BEBCB6;
+    background: white;
+    padding: 20px;
+    width: 350px;
+    height: 100px;
+    margin: 5px;
+    color: #008B01;
+}
+
+#message {
+	font-weight: bold;
+}
+
+.rowContainer {
+    display: flex !important;
+    flex-direction: row;
+}
+
+.columnContainer {
+    display: flex !important;
+    flex-direction: column;
+}
+
+.ui-datepicker-title {
+   color: #FF0000;
+ }
+
+ .ui-datepicker {
+   color: #FF0000;
+ }
+
+
