@@ -65,7 +65,8 @@ h1 {
     width: 350px;
     height: 100px;
     margin: 5px;
-    color: #008B01;
+    /*color: #008B01;*/
+    font-weight: lighter;
 }
 
 #message {

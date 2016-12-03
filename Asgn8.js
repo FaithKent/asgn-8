@@ -1,5 +1,3 @@
-console.log('correct file');
-
 $(document).ready(function() {
     var planSelected = null;
 
@@ -74,29 +72,44 @@ $(document).ready(function() {
     })
 
     $('#feelingsButton').click(function() {
-        var text = "I don't Know";
-        var animation = "bounce";
-        var callback = function() {};
+        var text;
+        var animation;
+        var callback;
+        var textColor;
+
         switch (planSelected) {
             case 'Great Plan!':
                 text = "Great!";
                 animation = "blind";
                 callback = function() {
-                    console.log('callback');
-                    setTimeout(function() {
-                        $("#feelingsOutput")
-                            .removeAttr("style")
-                            .fadeIn();
-                    }, 100);
+                    setTimeout(
+                        function() {
+                            $("#feelingsOutput").fadeIn(100); // duration of fade-in
+                        },
+                        100 // delay before fade-in
+                    );
                 };
+                textColor = '#008B01';
                 break;
+
             case 'Poor Plan!':
                 text = "My Head Hurts!";
                 animation = "shake";
+                callback = function() {};
+                textColor = '#FF0000';
+                break;
+
+            default: // unselected
+                text = "I don't Know";
+                animation = "bounce";
+                callback = function() {};
+                textColor = '#000000';
                 break;
         }
-        console.log('call');
-        $('#feelingsOutput').html(text);
-        $('#feelingsOutput').effect(animation, {}, 400, callback);
+
+        $('#feelingsOutput')
+            .html(text)
+            .css("color", textColor)
+            .effect(animation, {}, 400, callback);
     });
 })
